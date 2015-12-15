@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">UninstallFeedback</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Welcome to the game boy ! \r\n Now you can uninstall this.</string>
     <string name="action_settings">Settings</string>
 
 </resources>
