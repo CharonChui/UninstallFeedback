@@ -87,6 +87,11 @@ void Java_com_charon_uninstallfeedback_MainActivity_initUninstallFeedback(
 //		}
 
 		// 大神改进的版本，子进程注册"/data/data/packagename"目录监听器，膜拜大神zealotrouge
+		// 大神改成使用FileObserver类，这个类用于监听某个文件的变化状态，如果是目录，这个类还可以监听其子目录及子目录文件的变化状态，
+		// 通过阅读FileObserver源码，发现其实现利用了Linux内核中一个重要的机制inotify，它是一个内核用于通知用户空间程序文件系统变化的机制，
+		// 详情可参考http://en.wikipedia.org/wiki/Inotify，里面对inotify有比较详细的说明。
+		// 使用inotify的好处就在于不需要每1s的轮询，这样就不会无谓地消耗系统资源，使用inotify时会用read()方法阻塞进程，
+		// 直到收到IN_DELETE通知，此时进程重新被唤醒，执行反馈处理流程。
 		int fileDescriptor = inotify_init();
 		if (fileDescriptor < 0) {
 			// error
