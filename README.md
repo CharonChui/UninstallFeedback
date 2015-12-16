@@ -1,7 +1,5 @@
 # UninstallFeedback
 	
-Show feedback page when the apk be uninstalled.
-
 最初记得是在360安全卫士中出现的，在手机上卸载他的应用之后浏览器就会弹出一个反馈页面，让用户进行反馈，感觉这种功能对于产品改进特别有帮助。
 但是仔细一想该怎么去实现却犯愁了，最开始想这也简单啊，不就是监听下自身被卸载就可以了，应该系统会有卸载的广播，可惜没有。甚至其他的一些
 方法也是不行的，因为你程序都被卸载了，你的代码怎么会执行呢？皮之不存，毛将焉附。那360是怎样实现的呢？说句真心话360做的产品还是非常有创新
@@ -127,14 +125,16 @@ void Java_com_charon_uninstallfeedback_MainActivity_initUninstallFeedback(
 
 ```
 
-- 编译so文件。`Windows`下要用`cygwin`来操作。
-上面的介绍是在`Eclipse`中进行的，用`ndk-build`命令来编译`so`。
-有关`JNI`的使用可以参考[JNI基础](https://github.com/CharonChui/AndroidNote/blob/master/Android%E5%9F%BA%E7%A1%80/JNI%E5%9F%BA%E7%A1%80.md)
-使用`Android Studio`开发`JNI`的时候出现了小插曲，急着赶时间就改成用`eclipse`来写。有关`Studio`下的`NDK`开发可以参考[AndroidStudio中进行ndk开发](https://github.com/CharonChui/AndroidNote/blob/master/Android%E5%8A%A0%E5%BC%BA/AndroidStudio%E4%B8%AD%E8%BF%9B%E8%A1%8Cndk%E5%BC%80%E5%8F%91.md)
+- 编译so文件。`Windows`下要用`cygwin`来操作。                 
 
-最后发现这种轮训判断文件夹是否存在的方式问题太多，后来查了写资料，根据大神[热气球](http://www.cnblogs.com/zealotrouge/p/3182617.html)的方法进行了修改。
+上面的介绍是在`Eclipse`中进行的，用`ndk-build`命令来编译`so`。                 
+有关`JNI`的使用可以参考[JNI基础](https://github.com/CharonChui/AndroidNote/blob/master/Android%E5%9F%BA%E7%A1%80/JNI%E5%9F%BA%E7%A1%80.md)                                  
+使用`Android Studio`开发`JNI`的时候出现了插曲，急着赶时间就改成用`eclipse`来写。      
+有关`Studio`下的`NDK`开发可以参考[AndroidStudio中进行ndk开发](https://github.com/CharonChui/AndroidNote/blob/master/Android%E5%8A%A0%E5%BC%BA/AndroidStudio%E4%B8%AD%E8%BF%9B%E8%A1%8Cndk%E5%BC%80%E5%8F%91.md)
+
+最后发现这种轮训判断文件夹是否存在的方式问题太多，后来查了写资料，根据大神[热气球](http://www.cnblogs.com/zealotrouge/p/3182617.html)的方法进行了修改。              
 感谢大神[热气球](http://www.cnblogs.com/zealotrouge/p/3182617.html)的无私奉献。
-
+                  
 基于该想法也能实现服务的常驻内存。暂时还没有时间去做。这种做法从用户角度来讲，还是比较恶劣的，大家尽量不要用到实际项目中。
 
 ---
