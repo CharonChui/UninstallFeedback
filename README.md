@@ -132,7 +132,7 @@ void Java_com_charon_uninstallfeedback_MainActivity_initUninstallFeedback(
 使用`Android Studio`开发`JNI`的时候出现了插曲，急着赶时间就改成用`eclipse`来写。      
 有关`Studio`下的`NDK`开发可以参考[AndroidStudio中进行ndk开发](https://github.com/CharonChui/AndroidNote/blob/master/Android%E5%8A%A0%E5%BC%BA/AndroidStudio%E4%B8%AD%E8%BF%9B%E8%A1%8Cndk%E5%BC%80%E5%8F%91.md)
 
-最后发现这种轮训判断文件夹是否存在的方式问题太多，后来查了写资料，根据大神[热气球](http://www.cnblogs.com/zealotrouge/p/3182617.html)的方法进行了修改。              
+最后发现这种轮询判断文件夹是否存在的方式问题太多，后来查了写资料，根据大神[热气球](http://www.cnblogs.com/zealotrouge/p/3182617.html)的方法进行了修改。              
 感谢大神[热气球](http://www.cnblogs.com/zealotrouge/p/3182617.html)的无私奉献。
                   
 基于该想法也能实现服务的常驻内存。暂时还没有时间去做。这种做法从用户角度来讲，还是比较恶劣的，大家尽量不要用到实际项目中。
